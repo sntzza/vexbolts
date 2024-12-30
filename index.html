@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>VEXBOLTS MASSUNFOLLOW TIMES</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+        }
+
+        .timer-container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-sizing: border-box;
+            width: 90%;
+            max-width: 400px;
+            position: relative;
+            animation: rgb-frame 3s infinite;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        select {
+            font-size: 1.2rem;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+            appearance: none;
+            -webkit-appearance: none;
+            border: none;
+            background: #333;
+            color: white;
+        }
+
+        .timer {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 20px 0;
+            padding: 10px;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+            background: linear-gradient(90deg, rgba(255,0,0,0.8), rgba(0,255,0,0.8), rgba(0,0,255,0.8));
+            background-size: 300% 300%;
+            color: white;
+            text-shadow: 0 0 10px rgba(0,0,0,0.7);
+            animation: gradient-shift 3s infinite;
+            border: none;
+        }
+
+        .donation {
+            margin-top: 20px;
+            font-size: 1rem;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 10px;
+            color: white;
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        }
+
+        .donation a {
+            color: #00ff00;
+            text-decoration: none;
+        }
+
+        @keyframes rgb-frame {
+            0% {
+                box-shadow: 0 0 10px 2px rgba(255, 0, 0, 0.7);
+            }
+            33% {
+                box-shadow: 0 0 10px 2px rgba(0, 255, 0, 0.7);
+            }
+            66% {
+                box-shadow: 0 0 10px 2px rgba(0, 0, 255, 0.7);
+            }
+            100% {
+                box-shadow: 0 0 10px 2px rgba(255, 0, 0, 0.7);
+            }
+        }
+
+        @keyframes gradient-shift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="timer-container">
+        <h1>OFFICIAL UNFOLLOW TIME: 31.12.2024 23:59 Berlin Time, if not detected automatically search for your Timezone in the dropdown menu</h1>
+        <p>Select your time zone:</p>
+        <select id="timezone-select">
+            <option value="auto">Detect automatically</option>
+            <option value="-12">UTC-12:00 - Baker/Howland Islands</option>
+            <option value="-11">UTC-11:00 - American Samoa, Niue</option>
+            <option value="-10">UTC-10:00 - Hawaii, Tahiti</option>
+            <option value="-9">UTC-09:00 - Alaska</option>
+            <option value="-8">UTC-08:00 - Pacific Time (USA, Canada)</option>
+            <option value="-7">UTC-07:00 - Mountain Time (USA, Canada)</option>
+            <option value="-6">UTC-06:00 - Central Time (USA, Canada), Mexico City</option>
+            <option value="-5">UTC-05:00 - Eastern Time (USA, Canada), Lima</option>
+            <option value="-4">UTC-04:00 - Atlantic Time (Canada), Caracas</option>
+            <option value="-3">UTC-03:00 - Buenos Aires, Montevideo</option>
+            <option value="-2">UTC-02:00 - South Georgia</option>
+            <option value="-1">UTC-01:00 - Azores, Cape Verde</option>
+            <option value="0">UTC+00:00 - London, Reykjavik</option>
+            <option value="1">UTC+01:00 - Berlin, Paris, Rome</option>
+            <option value="2">UTC+02:00 - Athens, Cairo, South Africa</option>
+            <option value="3">UTC+03:00 - Moscow, Nairobi</option>
+            <option value="4">UTC+04:00 - Dubai, Baku</option>
+            <option value="5">UTC+05:00 - Pakistan, Yekaterinburg</option>
+            <option value="6">UTC+06:00 - Bangladesh, Omsk</option>
+            <option value="7">UTC+07:00 - Bangkok, Krasnoyarsk</option>
+            <option value="8">UTC+08:00 - Beijing, Perth</option>
+            <option value="9">UTC+09:00 - Tokyo, Seoul</option>
+            <option value="10">UTC+10:00 - Sydney, Vladivostok</option>
+            <option value="11">UTC+11:00 - New Caledonia, Solomon Islands</option>
+            <option value="12">UTC+12:00 - New Zealand, Fiji</option>
+        </select>
+
+        <div class="timer" id="timer">Loading...</div>
+    </div>
+
+    <div class="donation">
+        <p>my broke boy paid for the domain only for leaving vexbolts in 2024:</p>
+        <p>optional btc tip: bc1qaxsh7722p5lts08lrqnrsu9s6ls2rc5zg6cmek</a></p>
+        <p>questions discord: santeszz</a></p>
+    </div>
+
+    <script>
+        const timerElement = document.getElementById('timer');
+        const timezoneSelect = document.getElementById('timezone-select');
+
+        function calculateTimeLeft(targetDate) {
+            const now = new Date();
+            const diff = targetDate - now;
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            return { days, hours, minutes, seconds, diff };
+        }
+
+        function updateTimer() {
+            const selectedTimezone = timezoneSelect.value;
+            const berlinTime = new Date("2024-12-31T22:59:59.999Z"); // 31.12.2024 23:59 Berlin Time
+
+            let offset = selectedTimezone === "auto" 
+                ? -new Date().getTimezoneOffset() / 60 // Automatic detection
+                : parseInt(selectedTimezone);
+
+            const localOffset = offset - 1; // Berlin is UTC+1, adjust for selected timezone
+            const localTargetTime = new Date(berlinTime.getTime() + localOffset * 3600 * 1000);
+
+            const { days, hours, minutes, seconds, diff } = calculateTimeLeft(localTargetTime);
+
+            if (diff <= 0) {
+                timerElement.textContent = "The timer has expired!";
+                clearInterval(interval);
+            } else {
+                timerElement.textContent = `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
+            }
+        }
+
+        timezoneSelect.addEventListener('change', updateTimer);
+
+        const interval = setInterval(updateTimer, 1000);
+        updateTimer();
+    </script>
+</body>
+</html>
