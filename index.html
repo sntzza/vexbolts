@@ -192,7 +192,12 @@
                 timerElement.textContent = "The timer has expired!";
                 clearInterval(interval);
             } else {
-                timerElement.textContent = `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
+                let countdown = "";
+                if (days > 0) countdown += `${days} days, `
+                if (hours > 0) countdown += `${hours} hours, `
+                if (minutes > 0) countdown += `${minutes} minutes, `
+                if (seconds > 0) countdown += `${seconds} seconds`
+                timerElement.textContent = countdown
             }
         }
 
