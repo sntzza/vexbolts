@@ -97,16 +97,15 @@
 </head>
 <body>
     <div class="timer-container">
-        <h1>Countdown Timer ENDS 11:59 PM EST Time, because Vexbolts and MrBeasr will steam 15 before Timer ends</h1>
+        <h1>Countdown Timer ENDS to 31.12.2024 23:59 EST</h1>
         <div class="timer" id="timer">Loading...</div>
     </div>
 
     <div class="donation">
-        <p>Update: Removed Timezones cuz it was false, unfollow when the above countown hits 0</p>
+        <p>Update: Removed Timezones cuz it was false, unfollow when the above countdown hits 0</p>
         <p>my broke ass paid for the vexbolts domain only for leaving him in 2024</p>
         <p>join here our official discord: <a href="https://discord.gg/z5YRnmDM">https://discord.gg/z5YRnmDM</a></p>  
-    <p>made by discord: santeszz -> write me if you have questions ideas</p>
-
+        <p>made by discord: santeszz -> write me if you have questions ideas</p>
     </div>
 
     <script>
@@ -117,14 +116,14 @@
             const diff = targetDate - now;
             const days = Math.floor(diff / (1000 * 60 * 60 * 24));
             const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60)) / (1000 * 60));
-            const seconds = Math.floor((diff % 1000) / 1000);
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
             return { days, hours, minutes, seconds, diff };
         }
 
         function updateTimer() {
-            const estTime = new Date("2025-01-01T05:00:00.000Z"); // 31.12.2024 23:59 EST corresponds to 1.1.2025 05:00 UTC
+            const estTime = new Date("2025-01-01T05:00:00.000Z"); // EST New Year
 
             const { days, hours, minutes, seconds, diff } = calculateTimeLeft(estTime);
 
@@ -141,3 +140,4 @@
     </script>
 </body>
 </html>
+
