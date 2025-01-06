@@ -1,3 +1,28 @@
+function adjustCanvas() {
+  const canvas = document.getElementById('canvas');
+  const body = document.body;
+  const isMobile = window.innerWidth <= 600;
+
+  if (isMobile) {
+      canvas.style.width = `${window.innerWidth}px`;
+      canvas.style.height = `${window.innerHeight}px`;
+      body.style.backgroundColor = "black"; // Match the canvas background
+  } else {
+      canvas.style.width = 'auto';
+      canvas.style.height = '100vh';
+      canvas.style.position = 'absolute';
+      canvas.style.top = '50%';
+      canvas.style.left = '50%';
+      canvas.style.transform = 'translate(-50%, -50%)';
+      canvas.style.objectFit = 'contain';
+      body.style.backgroundColor = "black"; // Match the canvas background
+  }
+}
+
+// Initial adjustment and resize listener
+document.addEventListener('DOMContentLoaded', adjustCanvas);
+window.addEventListener('resize', adjustCanvas);
+
 const RAD = Math.PI / 180;
 const scrn = document.getElementById("canvas");
 const sctx = scrn.getContext("2d");
