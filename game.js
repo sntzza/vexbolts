@@ -60,15 +60,15 @@ scrn.onkeydown = function keyDown(e) {
 };
 
 const bgMusic = new Audio();
-bgMusic.src = "sfx/background.mp3";
+bgMusic.src = "background.mp3";
 bgMusic.loop = true;
 
 const SFX = {
-  start: new Audio("sfx/start.wav"),
-  flap: new Audio("sfx/flap.wav"),
-  score: new Audio("sfx/score.wav"),
-  hit: new Audio("sfx/hit.wav"),
-  die: new Audio("sfx/die.wav"),
+  start: new Audio("start.wav"),
+  flap: new Audio("flap.wav"),
+  score: new Audio("score.wav"),
+  hit: new Audio("hit.wav"),
+  die: new Audio("die.wav"),
   played: false,
 };
 
@@ -320,23 +320,23 @@ const UI = {
   },
 };
 
-gnd.sprite.src = "img/ground.png";
-bg.sprite.src = "img/BG.png";
-pipe.top.sprite.src = "img/toppipe.png";
-pipe.bot.sprite.src = "img/botpipe.png";
-UI.gameOver.sprite.src = "img/go.png";
-UI.getReady.sprite.src = "img/getready.png";
-UI.tap[0].sprite.src = "img/tap/t0.png";
-UI.tap[1].sprite.src = "img/tap/t1.png";
-bird.animations[0].sprite.src = "img/bird/b0.png";
-bird.animations[1].sprite.src = "img/bird/b1.png";
-bird.animations[2].sprite.src = "img/bird/b2.png";
-bird.animations[3].sprite.src = "img/bird/b0.png";
-SFX.start.src = "sfx/start.wav";
-SFX.flap.src = "sfx/flap.wav";
-SFX.score.src = "sfx/score.wav";
-SFX.hit.src = "sfx/hit.wav";
-SFX.die.src = "sfx/die.wav";
+gnd.sprite.src = "ground.png";
+bg.sprite.src = "BG.png";
+pipe.top.sprite.src = "toppipe.png";
+pipe.bot.sprite.src = "botpipe.png";
+UI.gameOver.sprite.src = "go.png";
+UI.getReady.sprite.src = "getready.png";
+UI.tap[0].sprite.src = "t0.png";
+UI.tap[1].sprite.src = "t1.png";
+bird.animations[0].sprite.src = "b0.png";
+bird.animations[1].sprite.src = "b1.png";
+bird.animations[2].sprite.src = "b2.png";
+bird.animations[3].sprite.src = "b0.png";
+SFX.start.src = "start.wav";
+SFX.flap.src = "flap.wav";
+SFX.score.src = "score.wav";
+SFX.hit.src = "hit.wav";
+SFX.die.src = "die.wav";
 
 function gameLoop() {
   update();
